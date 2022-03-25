@@ -1,0 +1,5 @@
+<%- headers = ['Employee Name', 'Annual Salary', 'Monthly Income Tax'] -%>
+<%= CSV.generate_line headers %>
+<%- @tax_profiles.each do |tax_profile| -%>
+  <%= CSV.generate_line([tax_profile[:employee_name], tax_profile[:annual_salary], tax_profile[:monthly_income_tax]]) -%>
+<%- end -%>

@@ -1,0 +1,2 @@
+class IncomeTaxBracketController < ApplicationController
+end

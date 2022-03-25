@@ -1,0 +1,87 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <p class="title">
+      Employee Payrolls Details
+    </p>
+    <p class="subtitle">
+      Here is a detail breakdown for your employee </span>
+  </p>
+</div>
+</section>
+<section class="section ">
+  <h1 class="title">Employee Name: <span class="has-text-weight-bold"> <%= @tax_profile[:employee_name] %> </h1>
+    <h2 class="subtitle is-6">
+      Last Updated at <%= @tax_profile[:updated_at] %>
+    </h2>
+    <br/>
+    <nav class="level">
+      <% @tax_profile[:tax_bracket].each do |bracket| %>
+        <div class="level-item has-text-centered">
+          <div>
+            <% if @prev_val == nil %>
+              <p class="heading"> More Than $<%=number_with_precision(bracket[1] + 1, precision: 2, separator: ".", delimiter: ",") %></p>
+              <p class="title"> <%= bracket[0] %>% </p>
+            <% else %>
+              <p class="heading "> $<%= @prev_val %> to $<%= number_with_precision(bracket[1] + 1, precision: 2, separator: ".", delimiter: ",") %></p>
+              <p class="title"> <%= bracket[0] %>% </p>
+            <% end %>
+          </div>
+        </div>
+        <%
+        @prev_val = number_with_precision(bracket[1], precision: 2, separator: ".", delimiter: ",") 
+        end 
+      %>
+      </nav>
+    </section>
+    <section class="section ">
+      <h1 class="title"> Annual Payroll Breakdown </h1>
+      <h2 class="subtitle">
+        Here is an annual payroll breakdown of the Income Tax and Salary 
+      </h2>
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Gross Salary</p>
+            <p class="title">$<%= @tax_profile[:gross_annual_salary] %></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Income Tax</p>
+            <p class="title">$<%= @tax_profile[:annual_income_tax] %></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Net Salary </p>
+            <p class="title">$<%= @tax_profile[:net_annual_salary] %></p>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <section class="section ">
+      <h1 class="title"> Monthly Payroll Breakdown </h1>
+      <h2 class="subtitle">
+        Here is an monthly payroll breakdown of the Income Tax and Salary 
+      </h2>
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Gross Salary</p>
+            <p class="title">$<%= @tax_profile[:gross_monthly_salary] %></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Income Tax</p>
+            <p class="title">$<%= @tax_profile[:monthly_income_tax] %></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Net Salary </p>
+            <p class="title">$<%= @tax_profile[:net_monthly_salary] %></p>
+          </div>
+        </div>
+      </nav>
+    </section>

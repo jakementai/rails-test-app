@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% # <title>Employee Income Tax</title> %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+  </head>
+  <body>
+    <nav class="container navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <h1 class="title is-4 is-uppercase is-italic has-text-primary-dark" style="letter-spacing: 4px;">Quick-Roll</h1>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <%= link_to "Create New Payroll", api_v1_payslip_form_path, class: "button has-text-primary-light	has-background-primary" %>
+            <%= link_to "View All Payrolls", api_v1_payslip_path, class: "button has-text-black-ter" %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

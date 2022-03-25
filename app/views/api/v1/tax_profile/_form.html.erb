@@ -1,0 +1,29 @@
+<%= form_for :tax_profile, url: api_v1_payslip_path do |form| %>
+  <section class="section">
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="field">
+          <%= form.label :employee_name, class:"label" %>
+          <%= form.text_field :employee_name, class:"input", placeholder:"Ren" %>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="field">
+          <%= form.label :gross_annual_income , class:"label"%>
+          <%= form.text_field :gross_annual_income, class:"input", type:"number", placeholder:"10000" %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <%= form.label :tax_bracket, class: "label" %>
+          <%= form.text_field :tax_bracket, class:"input", placeholder:"[[10:5000],[0:0]]" %>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="actions">
+        <%= form.submit "Create Payroll", class: "button is-success" %>
+      </div>
+    </div>
+  </section>
+<% end %>

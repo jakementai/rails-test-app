@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+ren:
+  id: 1
+  employee_name: "Ren"
+  annual_salary: 60000.0
+  monthly_income_tax: 500.0
+  tax_bracket: "[[40, 180000], [30, 80000], [20, 40000], [10, 20000], [0, 0]]"
+
+foo:
+  id: 2
+  employee_name: "Foo"
+  annual_salary: 50000.0
+  monthly_income_tax: 333.33
+  tax_bracket: "[[40, 180000], [30, 80000], [20, 40000], [10, 20000], [0, 0]]"
+
+jake:
+  id: 3
+  employee_name: "Jake"
+  annual_salary: 400000
+  monthly_income_tax: 200.0
+  tax_bracket: "[[40, 180000], [30, 80000], [20, 40000], [10, 20000], [0, 0]]"
+
